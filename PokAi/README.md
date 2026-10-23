@@ -49,3 +49,13 @@ cartoon-style mishap:
 ```powershell
 .\.venv\Scripts\python.exe pokemon_task_helper.py
 ```
+
+For a graphical interface to enter the task and display the advice, run:
+
+```powershell
+.\.venv\Scripts\python.exe task_ui.py
+```
+
+The interface uses CustomTkinter, included in `requirements.txt`. It displays
+the selected Pokémon's front sprite alongside the advice and reuses the same
+Pokémon and Gemini configuration as the command-line helper.

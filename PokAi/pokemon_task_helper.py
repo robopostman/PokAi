@@ -1,8 +1,8 @@
 from ask_gemini import ask_gemini
-from get_pokemon import random_pokemon
+from get_pokemon import PokemonDetails, random_pokemon
 
 
-def get_pokemon_task_advice(task: str) -> str:
+def get_pokemon_task_result(task: str) -> tuple[str, PokemonDetails]:
     if not task.strip():
         raise ValueError("Task cannot be empty")
 
@@ -17,7 +17,12 @@ def get_pokemon_task_advice(task: str) -> str:
         "cartoon-style disastrous mishap. Keep the mishap fictional and "
         "non-violent, with no real-world danger or injury."
     )
-    return ask_gemini(prompt)
+    return ask_gemini(prompt), pokemon_details
+
+
+def get_pokemon_task_advice(task: str) -> str:
+    advice, _ = get_pokemon_task_result(task)
+    return advice
 
 
 def main() -> None:
